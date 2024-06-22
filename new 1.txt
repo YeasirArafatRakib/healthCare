@@ -1,0 +1,40 @@
+CREATE TABLE doctordetails(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    study VARCHAR(100) NOT NULL,
+    phone VARCHAR (20) NOT NULL,
+    specalist VARCHAR (30),
+    patient_watching_time INT
+    )
+	
+	CREATE TABLE hospitaldetails(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(200) NOT NULL,
+    phone VARCHAR (20) NOT NULL,
+    district VARCHAR (30)
+    )
+	
+	CREATE TABLE hospital_doctor(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    doctor_id INT,
+    hospital_id INT,
+    start_time VARCHAR (20) NOT NULL,
+    time_range_start VARCHAR (10) NOT NULL,
+    end_time VARCHAR (30) NOT NULL,
+     time_range_end VARCHAR (10) NOT NULL,
+    FOREIGN KEY (doctor_id) REFERENCES doctordetails(id),
+     FOREIGN KEY (hospital_id) REFERENCES hospitaldetails(id)
+    )
+	CREATE TABLE appoinments(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hospital_name VARCHAR (200) NOT NULL,
+    doctor_name VARCHAR (50) NOT NULL,
+    doctor_specilist VARCHAR (30) NOT NULL,
+    district VARCHAR (30),
+    patient_name VARCHAR (50) NOT NULL,
+    patient_email VARCHAR (50) NOT NULL,
+    time VARCHAR (20) NOT NULL,
+    date DATE NOT NULL
+    
+    )
